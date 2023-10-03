@@ -56,14 +56,14 @@ The key requirement here is to utilize a GPU (CUDA). Without it, the process wil
 
 <div align="center">
   <h5>Mapillary Dataset</h5>
-  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272108374-d7e965bc-f7e7-4257-8948-ec5a522f5da4.jpeg" width="480" height="220" />
+  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272108374-d7e965bc-f7e7-4257-8948-ec5a522f5da4.jpeg" width="300" height="130" />
 </div>
 
 The Mapillary Vistas dataset is an innovative large-scale street-level image dataset containing 25,000 high-resolution annotated images across 66 object categories with specific instance labels for 37 classes. The annotation is done in a dense and detailed style using polygons to delineate individual objects. Our dataset is five times larger than the total amount of detailed annotations for Cityscapes and includes images from around the world, captured in various weather, seasonal, and hourly conditions. The images come from different imaging devices (mobile phones, tablets, action cameras, professional capture equipment) and photographers with varying levels of experience. This way, our dataset was designed and compiled to cover diversity, rich detail, and geographic extent. As default reference tasks, we define image semantic segmentation and instance-specific image segmentation with the aim of significantly contributing to the development of cutting-edge methods for understanding the visual scene on the road.
 
 <div align="center">
   <h5>Mapillary Dataset Statistics</h5>
-  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272108372-63df54d5-af4b-4131-ae1b-456e93223b80.jpeg" width="480" height="220" />
+  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272108372-63df54d5-af4b-4131-ae1b-456e93223b80.jpeg" width="700" height="300" />
 </div>
 
 
@@ -71,12 +71,12 @@ Here is the structure of this data:
 
 <div align="center">
   <h5>Mapillary Dataset's Structure (Full Dataset in Kaggle - 29GB)</h5>
-  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272108366-6fd4d480-10e5-4cb0-a348-154fff461218.jpeg" width="480" height="220" />
+  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272108366-6fd4d480-10e5-4cb0-a348-154fff461218.jpeg" width="700" height="300" />
 </div>
 
 <div align="center">
   <h5>Mapillary Dataset's Structure</h5>
-  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272108364-7cb7289e-cdb1-4a82-8b88-dec7bae0c729.jpeg" width="480" height="220" />
+  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272108364-7cb7289e-cdb1-4a82-8b88-dec7bae0c729.jpeg" width="700" height="300" />
 </div>
 
 
@@ -132,15 +132,15 @@ train_ds = val_ds.map(lambda im, m: tf.py_function(process_img_mask, [im,m], Tou
 
 <div align="center">
   <h4>Loss Value 1</h4>
-  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272108355-906fcb4e-8752-42fe-bef4-aa7424a839db.jpeg" width="700" height="300"/>
+  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272108355-906fcb4e-8752-42fe-bef4-aa7424a839db.jpeg" width="600" height="300"/>
 </div>
 <div align="center">
   <h4>Loss Value 2</h4>
-  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272108341-7b9afda0-9b79-46b8-bb8c-4e67d889c312.jpeg" width="700" height="300"/>
+  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272108341-7b9afda0-9b79-46b8-bb8c-4e67d889c312.jpeg" width="600" height="300"/>
 </div>
 <div align="center">
   <h4>Loss Value 3</h4>
-  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272108377-1b086c6d-76c7-4911-9e88-0029adbd37ac.jpeg" width="700" height="300"/>
+  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272108377-1b086c6d-76c7-4911-9e88-0029adbd37ac.jpeg" width="600" height="300"/>
 </div>
 
 
@@ -199,5 +199,5 @@ Let's connect and explore the fascinating world of artificial intelligence toget
 
 <div align="center">
   <h4>Don't belittle segmentations; they're sharper than you think! 😄</h4>
-  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272111548-08c84430-36e6-4547-abfa-1127890864c6.gif" width="300" height="300"/>
+  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272111548-08c84430-36e6-4547-abfa-1127890864c6.gif" width="400" height="300"/>
 </div>
