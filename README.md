@@ -87,47 +87,36 @@ Here is the structure of this data:
 
 ## Data PreProcessing
 
-### building input-label pair
+### Pre-Process an image and its mask
 
 
 ```
-import os
-import csv
+def process_img_mask(img_path, mask_path):    
+    mask = tf.io.read_file(mask_path)
+    mask = tf.image.decode_png(mask, channels=1)
+    mask = tf.image.resize(mask, (128, 128), method = tf.image.ResizeMethod.NEAREST_NEIGHBOR)
+    mask -= 1
+    
+    image = tf.io.read_file(img_path)
+    image = tf.image.decode_jpeg(image, channels=3)
+    image = tf.image.resize(image, (128, 128))
+    image = tf.cast(image, tf.float32) / 255.0
+    
 
-def get_all_file_names(directory):
-    file_names = os.listdir(directory)
-    return file_names
+    random_flip_layer = tf.keras.layers.RandomFlip(mode="horizontal", seed=random.randint(0, 2000))
+    image = random_flip_layer(image)
+    mask = random_flip_layer(mask)
+        
+    image = tf.image.convert_image_dtype(image, dtype=tf.float32)
+    mask = tf.image.convert_image_dtype(mask, dtype=tf.float32)
+    return (image, mask)
 
-def create_dataset(min_idx, max_idx, csv_name, file_names, dist_path):
+# Map the function to load and preprocess the data
+train_ds = tf.data.Dataset.zip((tr_imgs, tr_masks))
+train_ds = train_ds.map(lambda im, m: tf.py_function(process_img_mask, [im,m], Tout=[tf.float32, tf.float32]), num_parallel_calls=tf.data.AUTOTUNE)
 
-    with open(f"{dist_path}/{csv_name}.csv", mode="w", newline="") as csv_file:
-        for i, fl_name in enumerate(file_names[min_idx:max_idx+1]):
-            name = fl_name.split(".")[0]
-            img_name = name+".jpg"
-            label_name = name+".txt"
-            data = [img_name, label_name]
-            writer = csv.writer(csv_file)
-            writer.writerow(data)
-
-
-directory_path = "/content/Yolo_Test_Data/annotations"
-dist_path="/content/Yolo_Test_Data/"
-
-file_names = get_all_file_names(directory_path)
-
-train_size = [0, int(0.8 * len(file_names))+1]
-test_size = [train_size[0], int(0.2 * len(file_names))+1]
-val_size = [test_size[0], int(0.2 * len(file_names))+1]
-
-
-create_dataset(min_idx=train_size[0], max_idx=train_size[1], csv_name="big_train",file_names=file_names, dist_path=dist_path)
-create_dataset(min_idx=test_size[0], max_idx=test_size[1], csv_name="big_test",file_names=file_names, dist_path=dist_path)
-create_dataset(min_idx=val_size[0], max_idx=val_size[1], csv_name="big_val",file_names=file_names, dist_path=dist_path)
-
-# this is just when building the model
-create_dataset(min_idx=0, max_idx=101, csv_name="tiny_train",file_names=file_names, dist_path=dist_path)
-create_dataset(min_idx=101, max_idx=121, csv_name="tiny_test",file_names=file_names,dist_path=dist_path)
-create_dataset(min_idx=121, max_idx=141, csv_name="tiny_val",file_names=file_names, dist_path=dist_path)
+val_ds = tf.data.Dataset.zip((val_imgs, val_masks))
+train_ds = val_ds.map(lambda im, m: tf.py_function(process_img_mask, [im,m], Tout=[tf.float32, tf.float32]), num_parallel_calls=tf.data.AUTOTUNE)
 ```
 
 
