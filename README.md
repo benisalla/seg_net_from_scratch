@@ -7,7 +7,7 @@ In this project, we have diligently constructed SegNet from scratch, and we've t
 
 <div align="center">
   <h1>YOLOv1: Building Object Detection Model from scratch</h1>
-  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/267430814-f1bbe296-e561-45ea-96c3-9afa4c34fdb8.png" width="700" height="300" />
+  <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/89405673/272214156-ee453bd8-391a-4f6a-9cf7-71c6dc2e5595.png" width="700" height="300" />
 </div>
 
 
