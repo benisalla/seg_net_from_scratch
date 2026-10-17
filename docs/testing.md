@@ -13,8 +13,7 @@ ruff check src tests
 | `tests/test_metrics.py` | pixel accuracy and IoU computed by hand, ignored pixels count in neither the loss nor the metrics, dice loss range |
 | `tests/test_train.py` | **overfit sanity check** (a small SegNet memorises 4 images: loss falls by more than 4× and pixel accuracy goes above 90%), all output files are written, `--resume` continues the history, checkpoint reload and `segnet-predict` work, CLI flags reach the configs, lr schedule values |
 
-`test_overfit_a_few_samples` is the slowest test (under a minute on an idle
-CPU). It is also the most important one: a segmentation model that cannot
+`test_overfit_a_few_samples` is the slowest test. It is also the most important one: a segmentation model that cannot
 memorise four images has a bug in its data, loss or architecture.
 
 ## Checks on real data
