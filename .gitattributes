@@ -1,0 +1,2 @@
+# Keep the original notebook out of GitHub language stats (the repo is a Python project)
+legacy/** linguist-vendored
