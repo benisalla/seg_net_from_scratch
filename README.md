@@ -1,4 +1,4 @@
-# SegNet from scratch
+# SegNet semantic segmentation
 
 **Give it a photo and it labels every pixel: road, car, traffic sign, pet or background.**
 
@@ -9,7 +9,7 @@
 
 A clean PyTorch implementation of **SegNet**
 ([Badrinarayanan et al., 2017](https://arxiv.org/abs/1511.00561)), the
-encoder–decoder network for semantic segmentation, written from scratch with no
+encoder–decoder network for semantic segmentation, implemented in plain PyTorch with no
 pretrained weights and no segmentation libraries. It trains on toy shapes,
 Oxford-IIIT Pet and Mapillary Vistas street scenes, on a CPU or a free
 Kaggle/Colab GPU.
@@ -30,8 +30,8 @@ needs very little memory. See [docs/architecture.md](docs/architecture.md).
 
 ```bash
 # 1. install (Python >= 3.10)
-git clone https://github.com/benisalla/seg_net_from_scratch.git
-cd seg_net_from_scratch
+git clone https://github.com/benisalla/segnet-semantic-segmentation.git
+cd segnet-semantic-segmentation
 python -m venv .venv && source .venv/bin/activate
 pip install -e '.[dev]'
 
@@ -85,7 +85,7 @@ Folder layout and all options: [docs/training.md](docs/training.md).
 ## Project layout
 
 ```
-seg_net_from_scratch/
+segnet-semantic-segmentation/
 ├── src/segnet/
 │   ├── model.py       # SegNet: VGG16-BN encoder, index max-unpooling decoder
 │   ├── data.py        # shapes, Oxford-IIIT Pet, Mapillary Vistas datasets

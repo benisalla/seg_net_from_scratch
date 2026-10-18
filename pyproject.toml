@@ -3,14 +3,14 @@ requires = ["hatchling>=1.25"]
 build-backend = "hatchling.build"
 
 [project]
-name = "segnet-from-scratch"
+name = "segnet-semantic-segmentation"
 version = "0.1.0"
-description = "SegNet semantic segmentation written from scratch in PyTorch: toy shapes, Oxford-IIIT Pet and Mapillary Vistas street scenes."
+description = "SegNet semantic segmentation in PyTorch: toy shapes, Oxford-IIIT Pet and Mapillary Vistas street scenes."
 readme = "README.md"
 license = { text = "MIT" }
 authors = [{ name = "Ismail Ben Alla", email = "ismailbenalla52@gmail.com" }]
 requires-python = ">=3.10"
-keywords = ["segnet", "semantic-segmentation", "pytorch", "computer-vision", "mapillary", "from-scratch"]
+keywords = ["segnet", "semantic-segmentation", "pytorch", "computer-vision", "mapillary"]
 dependencies = [
   "matplotlib>=3.7",
   "numpy>=1.24",
@@ -20,7 +20,7 @@ dependencies = [
 ]
 
 [project.urls]
-Repository = "https://github.com/benisalla/seg_net_from_scratch"
+Repository = "https://github.com/benisalla/segnet-semantic-segmentation"
 
 [project.scripts]
 segnet-train = "segnet.train:main"
